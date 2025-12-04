@@ -8,10 +8,13 @@ import com.app.ecom.repository.CartItemRepository;
 import com.app.ecom.repository.ProductRepository;
 import com.app.ecom.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -54,5 +57,30 @@ public class CartService {
             cartItemRepository.save(newCartItem);
         }
         return true;
+    }
+
+    public List<CartItem> getCart(String userId) {
+        return userRepository.findById(Long.valueOf(userId))
+                .map(cartItemRepository::findByUser)
+                .orElseGet(List::of);
+//        Optional<User> userOptional = userRepository.findById(Long.valueOf(userId));
+//        if(userOptional.isEmpty())
+//            return null;
+//
+//        User user = userOptional.get();
+//
+//        List<CartItem> items = cartItemRepository.findByUser(user);
+//        return items;
+    }
+
+    public boolean deleteItemFromCart(String userId, Long productId) {
+        Optional<Product> productOpt = productRepository.findById(productId);
+        Optional<User> userOpt = userRepository.findById(Long.valueOf(userId));
+
+        if (productOpt.isPresent() && userOpt.isPresent()){
+            cartItemRepository.deleteByUserAndProduct(userOpt.get(), productOpt.get());
+            return true;
+        }
+        return false;
     }
 }
