@@ -13,3 +13,24 @@ spring:
 
 server:
   port: 8082
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans, health
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: Ecom Microservice App
+    description: App built by us
+    version: 1.0.0
