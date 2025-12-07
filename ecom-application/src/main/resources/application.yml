@@ -12,10 +12,6 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-#server:
-#  port: 8080
-#  shutdown: graceful
-
 management:
   endpoints:
     web:
