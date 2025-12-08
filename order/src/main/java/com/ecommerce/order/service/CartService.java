@@ -4,6 +4,7 @@ package com.ecommerce.order.service;
 import com.ecommerce.order.dto.CartItemRequest;
 import com.ecommerce.order.model.CartItem;
 import com.ecommerce.order.repository.CartItemRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class CartService {
