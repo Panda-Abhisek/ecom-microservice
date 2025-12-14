@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: demo
+  profiles:
+    active: prod
+  config:
+    import: optional:configserver:http://localhost:8222
+build:
+  id: 000
+  version: 0.0.0
+  name: "Default-Build"
+  type: "Default Build"
+
+server:
+  port: 8111
