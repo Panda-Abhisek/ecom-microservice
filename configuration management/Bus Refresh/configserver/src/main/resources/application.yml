@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: native
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///C:\Users\Dell\IdeaProjects\ecom-microservice\configuration management\Bus Refresh\configserver\src\main\resources\config   #or provide full file path if using external config dir
+server:
+  port: 8222
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh
