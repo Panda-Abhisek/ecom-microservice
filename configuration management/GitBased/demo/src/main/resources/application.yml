@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: configdemo
+  profiles:
+    active: dev
+  config:
+    import: optional:configserver:http://localhost:8282
+build:
+  id: 000
+  version: 0.0.0
+  name: "Default-Build"
+  type: "Default Build"
