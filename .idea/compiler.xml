@@ -7,7 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
         <module name="configserver" />
+        <module name="configserver (1) (com.configuration)" />
       </profile>
       <profile name="Annotation profile for user" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -26,6 +28,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="configserver" options="-parameters" />
+      <module name="configserver (1) (com.configuration)" options="-parameters" />
+      <module name="demo" options="-parameters" />
       <module name="ecom-application" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="product" options="-parameters" />

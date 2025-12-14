@@ -7,6 +7,12 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/config   #or provide full file path if using external config dir
+          search-locations: file:///C:\Users\Dell\IdeaProjects\ecom-microservice\configuration management\FileBased\configserver\src\main\resources\config   #or provide full file path if using external config dir
 server:
   port: 8222
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh
