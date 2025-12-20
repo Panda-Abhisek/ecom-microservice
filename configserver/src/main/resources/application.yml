@@ -12,7 +12,7 @@ spring:
     config:
       server:
         native:
-          search-locations: file:///C:\Users\Dell\IdeaProjects\ecom-microservice\configserver\src\main\resources\config
+          search-locations: file:///C:\Users\abhis\Documents\IdeaProjects\ecom-microservice\configserver\src\main\resources\config
 server:
   port: 8888
 
