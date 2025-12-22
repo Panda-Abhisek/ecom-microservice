@@ -1,0 +1,54 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Ignore MinIO and Loki data directories
+additional/evaluate-loki/
+additional/evaluate-prometheus/
+*.meta
+# Ignore log files
+*.log
+Logs/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+revision.txt
+
+# Gradle (if applicable)
+build/
+.gradle/
+
+# Eclipse
+.classpath
+.project
+.settings
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code (if applicable)
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.mvn/jvm.args
+
+# Environment
+.env
