@@ -13,7 +13,7 @@ additional/evaluate-prometheus/
 # Ignore log files
 *.log
 Logs/
-
+logs/
 # Maven
 target/
 pom.xml.tag
