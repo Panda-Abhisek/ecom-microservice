@@ -1,2 +1,3 @@
 # Ignore local runtime data for MinIO and other ephemeral files
 .data/
+additional/evaluate-prometheus/.data/
