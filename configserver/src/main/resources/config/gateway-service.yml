@@ -1,34 +1,40 @@
 server:
   port: 8080
 
-#spring:
-#  cloud:
-#    gateway:
-#      server:
-#        webflux:
-#          routes:
-#            - id: product-service
-#              uri: lb://PRODUCT-SERVICE
-#              predicates:
-#                - Path=/api/products/**
-#            - id: order-service
-#              uri: lb://ORDER-SERVICE
-#              predicates:
-#                - Path=/api/orders/**,/api/cart/**
-#            - id: user-service
-#              uri: lb://USER-SERVICE
-#              predicates:
-#                - Path=/api/users/**
-#            - id: eureka-server
-#              uri: http://localhost:8761
-#              predicates:
-#                - Path=/eureka/main
-#              filters:
-#                - SetPath=/
-#            - id: eureka-server-static
-#              uri: http://localhost:8761
-#              predicates:
-#                - Path=/eureka/**
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: product-service
+              uri: lb://PRODUCT-SERVICE
+              predicates:
+                - Path=/products/**
+              filters:
+                - "RewritePath=/products(?<segment>/?.*),/api/products${segment}"
+            - id: order-service
+              uri: lb://ORDER-SERVICE
+              predicates:
+                - Path=/orders/**,/cart/**
+              filters:
+                - "RewritePath=/(?<segment>.*),/api/${segment}"
+            - id: user-service
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/users/**
+              filters:
+                - "RewritePath=/users(?<segment>/?.*),/api/users${segment}"
+            - id: eureka-server
+              uri: http://localhost:8761
+              predicates:
+                - Path=/eureka/main
+              filters:
+                - SetPath=/
+            - id: eureka-server-static
+              uri: http://localhost:8761
+              predicates:
+                - Path=/eureka/**
 
 management:
   endpoint:
