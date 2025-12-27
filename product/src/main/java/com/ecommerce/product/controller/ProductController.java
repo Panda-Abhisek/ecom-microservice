@@ -1,6 +1,5 @@
 package com.ecommerce.product.controller;
 
-
 import com.ecommerce.product.dto.ProductRequest;
 import com.ecommerce.product.dto.ProductResponse;
 import com.ecommerce.product.service.ProductService;
@@ -17,6 +16,15 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+
+    @GetMapping("/simulate")
+    public ResponseEntity<String> simulateFailure(
+            @RequestParam(defaultValue= "false") boolean fail
+    ) {
+        if (fail)
+            throw new RuntimeException("Simulated Failure For Testing");
+        return ResponseEntity.ok("Product Service is OK.");
+    }
 
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest) {
