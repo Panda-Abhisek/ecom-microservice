@@ -37,22 +37,22 @@ services:
         limits:
           memory: 1g
 
-  rabbitmq:
-    container_name: rabbitmq_container
-    image: rabbitmq:3-management
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    networks:
-      - backend
-    restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          memory: 512m
+#  rabbitmq:
+#    container_name: rabbitmq_container
+#    image: rabbitmq:3-management
+#    environment:
+#      - RABBITMQ_DEFAULT_USER=guest
+#      - RABBITMQ_DEFAULT_PASS=guest
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#    networks:
+#      - backend
+#    restart: unless-stopped
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 512m
 
 networks:
   backend:
