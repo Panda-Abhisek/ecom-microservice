@@ -1,4 +1,15 @@
 spring:
+  cloud:
+    stream:
+      bindings:
+        createOrder-out-0:
+          destination: order.exchange
+          content-type: application/json
+      rabbit:
+        bindings:
+          createOrder-out-0:
+            producer:
+              routing-key-expression: '''order.tracking'''
   datasource:
     url: jdbc:postgresql://localhost:5432/orderdb
     username: ${DB_USER}
