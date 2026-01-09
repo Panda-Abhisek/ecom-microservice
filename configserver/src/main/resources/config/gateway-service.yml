@@ -76,3 +76,11 @@ resilience4j:
       retryBreaker:
         maxAttempts: 5
         waitDuration: 500ms
+
+#SECURITY
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8443/realms/ecom-app
