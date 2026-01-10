@@ -39,3 +39,12 @@ logging:
     rolling policy:
       max-file-size: 5MB
       max-history: 7
+
+#KEYCLOAK
+keycloak:
+  admin:
+    username: testUser
+    password: testUser
+    server-url: http://localhost:8443
+    realm: ecom-app
+    client-id: admin-cli
